@@ -69,6 +69,7 @@ int updateOutputLua(lua_State* L) {
   ConvolutionPass pass(ConvolutionPass(ConvolutionPass::kUpdateOutput));
   ProblemSizes pbs(thp, pass);
 
+  printf("---------------------------\n");
   auto strategy = SpatialConvolutionCuFFTTuner::getBestPerformance(state, pbs);
   if (!strategy) {
     luaL_error(L, "FFT problem too large; no viable strategy found");
